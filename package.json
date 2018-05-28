@@ -1,0 +1,25 @@
+{
+  "name": "nodejs-webcom-vuejs",
+  "version": "1.0.0",
+  "description": "test d'un ensemble technique cohérent",
+  "main": "index.js",
+  "scripts": {
+    "start": "node app.js",
+    "stop": "pkill --signal SIGINT franckApp",
+    "test": "jest"
+  },
+  "author": "francky",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.3",
+    "cron": "^1.2.1",
+    "vue": "^2.5.16",
+    "webcom": "latest",
+    "dateformat": "latest"
+  },
+  "devDependencies": {
+    "sinon": "^4.5.0",
+    "supertest": "^3.0.0",
+    "jest": "^22.4"
+  }
+}
