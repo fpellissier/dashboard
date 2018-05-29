@@ -16,5 +16,5 @@ class dateTimeService {
         console.log("dateTimeService tick : " + iter);
     };
 }
-    
+
 module.exports = dateTimeService;

@@ -23,3 +23,7 @@ DEV Environnement :
 and then load the page on your browser at addresses : 
 
 	https://localhost:3003/client
+
+5 - manage the cron job
+	stop the cron with : http://localhost:3003/dateTimeJob/stop
+	start the cron with : http://localhost:3003/dateTimeJob/start

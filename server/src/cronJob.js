@@ -1,13 +1,13 @@
 let cron = require('cron');
 let dateTimeService = require('./dateTimeService');
-let dateTimeJob = null;
+var dateTimeJob = null;
 
 function startCronService() {
     let iteration = 0,
     dtService = new dateTimeService();
 
-    if (!dateTimeJob) {
-        datetimeJob = new cron.CronJob({
+    if (!this.dateTimeJob) {
+        this.dateTimeJob = new cron.CronJob({
             cronTime: '00,15,30,45 * * * * *',
             onTick: function() {
                 dtService.tick(iteration);
@@ -17,13 +17,13 @@ function startCronService() {
             timeZone: 'Europe/Paris'
         });
     } else {
-        console.log("datetimejob already started");
+        console.log("dateTimeJob already started");
     }
 }
 
 function stopDateTimeJob() {
-    if(dateTimeJob && dateTimeJob.running) {
-        dateTimeJob.stop();
+    if(this.dateTimeJob && this.dateTimeJob.running) {
+        this.dateTimeJob.stop();
         return "Date Time Job stopped";
     } else {
         return "Date Time Job is already stopped";
@@ -31,9 +31,9 @@ function stopDateTimeJob() {
 }
 
 function startDateTimeJob() {
-    if(dateTimeJob) {
-        if(!dateTimeJob.running) {
-            dateTimeJob.start();
+    if(this.dateTimeJob) {
+        if(!this.dateTimeJob.running) {
+            this.dateTimeJob.start();
             return "Date Time Job has been started";
         } else {
             return "Date Time Job is already running"
