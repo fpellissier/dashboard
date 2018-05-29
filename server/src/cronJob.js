@@ -1,6 +1,6 @@
 let cron = require('cron');
 let dateTimeService = require('./dateTimeService');
-var dateTimeJob = null;
+let dateTimeJob = null;
 
 function startCronService() {
     let iteration = 0,
@@ -13,7 +13,7 @@ function startCronService() {
                 dtService.tick(iteration);
                 iteration++;
             },
-            start: true,
+            start: false,
             timeZone: 'Europe/Paris'
         });
     } else {
