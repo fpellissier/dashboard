@@ -13,12 +13,19 @@
                 border-bottom: 1px solid #333333;
                 border-left: 1px solid #CCCCCC;
                 }
+            .response {
+                padding: 10px;
+                font: bold 12px Arial;
+                color: green;
+            }
         </style>
+        <script type="text/javascript" src="./ajax_requests.js"></script>
     </head>
-    <body>
+    <body onload="manageJob('status')">
         <h1>Page d'administration du serveur</h1>
         <h2>Gestion du cron date time job.</h2>
-        <a class="button" href="#" onClick="window.open('/dateTimeJob/start','date Time Job start','resizable=no,height=100,width=250'); return false;">Start Job</a>
-        <a class="button" href="#" onClick="window.open('/dateTimeJob/stop','date Time Job stop','height=100,width=250'); return false;">Stop Job</a>
+        <a class="button" href="#" onClick="manageJob('start')">Start Job</a>
+        <a class="button" href="#" onClick="manageJob('stop')">Stop Job</a>
+        <span class="response" id="responseText"></span>
     </body>
 </html>

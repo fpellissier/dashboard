@@ -11,13 +11,8 @@ class Server {
       res.send('Hello World');
     });
 
-    this.app.get('/dateTimeJob/start', function (req, res) {
-      let mess = cronJob.startDateTimeJob();
-      res.send(mess);
-    });
-
-    this.app.get('/dateTimeJob/stop', function (req, res) {
-      let mess = cronJob.stopDateTimeJob();
+    this.app.get('/dateTimeJob/manage', function (req, res) {
+      let mess = cronJob.startStopJob(req.query.action);
       res.send(mess);
     });
   }

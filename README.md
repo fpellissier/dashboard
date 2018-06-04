@@ -24,9 +24,5 @@ and then load the page on your browser at addresses :
 
 	http://localhost:3003/client
 
-5 - manage the cron job
+5 - manage the cron jobs
 	Connect to : http://localhost:3003/server
-
-	or :
-	stop the cron with : http://localhost:3003/dateTimeJob/stop
-	start the cron with : http://localhost:3003/dateTimeJob/start

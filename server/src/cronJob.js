@@ -1,6 +1,5 @@
 let cron = require('cron');
 let dateTimeService = require('./dateTimeService');
-let dateTimeJob = null;
 
 function startCronService() {
     let iteration = 0,
@@ -21,12 +20,29 @@ function startCronService() {
     }
 }
 
+function startStopJob(/*String*/ action){
+
+    switch(action){
+        case 'status':
+            return this.dateTimeJobStatus();
+            break;
+        case 'start':
+            return this.startDateTimeJob();
+            break;
+        case 'stop':
+            return this.stopDateTimeJob()
+            break;
+        default:
+            return "unknown action... " + action;
+    }
+};
+
 function stopDateTimeJob() {
     if(this.dateTimeJob && this.dateTimeJob.running) {
         this.dateTimeJob.stop();
-        return "Date Time Job stopped";
+        return "DateTime Job stopped";
     } else {
-        return "Date Time Job is already stopped";
+        return "DateTime Job is already stopped";
     }
 }
 
@@ -34,15 +50,29 @@ function startDateTimeJob() {
     if(this.dateTimeJob) {
         if(!this.dateTimeJob.running) {
             this.dateTimeJob.start();
-            return "Date Time Job has been started";
+            return "DateTime Job has been started";
         } else {
-            return "Date Time Job is already running"
+            return "DateTime Job is already running"
         }
     } else {
-        return "The cron job Date Time does not exist";
+        return "No DateTime job found";
+    }
+}
+
+function dateTimeJobStatus() {
+    if(this.dateTimeJob) {
+        if(this.dateTimeJob.running) {
+            return "DateTime Job is running";
+        } else {
+            return "DateTime Job is not running";
+        }
+    } else {
+        return "No DateTime job found";
     }
 }
 
 module.exports.startCronService = startCronService;
+module.exports.startStopJob = startStopJob;
+module.exports.dateTimeJobStatus = dateTimeJobStatus;
 module.exports.startDateTimeJob = startDateTimeJob;
 module.exports.stopDateTimeJob = stopDateTimeJob;
