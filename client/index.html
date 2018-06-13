@@ -14,12 +14,14 @@
 
 	<body>
         <div id="DATETIME_data">
-            <div>Date est  : {{ date }}</div>
-            <div>Itération est  : {{ iteration }}</div>
-            
+            <div>Date est  : {{ jour }}</div>
+            <div>Heure est  : {{ heure }}</div>
+            <div>Données sont  : {{ datetime }}</div>
         </div>
-
+      
+        <div class="chart"></div>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.16/vue.js"></script>
+        <script src="//d3js.org/d3.v3.min.js"></script>
         <script src="./index.js"></script>
     </body>
     

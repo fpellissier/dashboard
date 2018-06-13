@@ -9,8 +9,7 @@ function startCronService() {
         this.dateTimeJob = new cron.CronJob({
             cronTime: '00,15,30,45 * * * * *',
             onTick: function() {
-                dtService.tick(iteration);
-                iteration++;
+                dtService.tick();
             },
             start: false,
             timeZone: 'Europe/Paris'
